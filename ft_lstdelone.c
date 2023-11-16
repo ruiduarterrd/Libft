@@ -6,7 +6,7 @@
 /*   By: ruirodri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 05:16:03 by ruirodri          #+#    #+#             */
-/*   Updated: 2023/11/16 05:25:30 by ruirodri         ###   ########.fr       */
+/*   Updated: 2023/11/16 15:17:40 by ruirodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,20 +34,20 @@
 
 #include "libft.h"
 
-static void	ft_del(void *content)
-{
-	free(content);
-}
-
 void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
 	if (!lst || !del)
 		return ;
-	del(lst->content);
+	(del)(lst->content);
 	free (lst);
 }
 
 /*
+void	ft_del(void *content)
+{
+	free(content);
+}
+
 int main(void)
 {
 	t_list *node = malloc(sizeof(t_list));

@@ -6,7 +6,7 @@
 /*   By: ruirodri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 05:26:34 by ruirodri          #+#    #+#             */
-/*   Updated: 2023/11/16 05:34:16 by ruirodri         ###   ########.fr       */
+/*   Updated: 2023/11/16 15:18:55 by ruirodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,29 +34,30 @@
 
 #include "libft.h"
 
-void	ft_del(void *content)
-{
-	free(content);
-}
-
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
+	t_list	*head;
 	t_list	*tmp;
 
-	tmp = *lst;
-	if (lst == NULL)
+	if (lst == NULL || del == NULL)
 		return ;
-	while (tmp != (void *)0)
+	head = *lst;
+	while (head)
 	{
-		del (tmp->content);
-		*lst = tmp->next;
-		free (tmp);
-		tmp = *lst;
+		tmp = head -> next;
+		(*del)(head -> content);
+		free(head);
+		head = tmp;
 	}
 	*lst = NULL;
 }
 
 /*
+void	ft_del(void *content)
+{
+	free(content);
+}
+
 int main(void)
 {
 	t_list *node1 = malloc(sizeof(t_list));

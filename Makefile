@@ -1,6 +1,5 @@
 NAME = libft.a
 
-# Add more files to sources
 SRCS = ft_atoi.c \
 	ft_bzero.c \
 	ft_calloc.c \
@@ -34,10 +33,21 @@ SRCS = ft_atoi.c \
 	ft_strtrim.c \
 	ft_substr.c \
 	ft_tolower.c \
-	ft_toupper.c
+	ft_toupper.c \
+
+BONUS_SRCS = ft_lstnew.c \
+			ft_lstadd_front.c \
+			ft_lstsize.c \
+			ft_lstlast.c \
+			ft_lstadd_back.c \
+			ft_lstdelone.c \
+			ft_lstclear.c \
+			ft_lstiter.c \
+			ft_lstmap.c \
 
 # Use same files from sources, but change .c to .o
-OFILES = ${SRCS:.c=.o}
+OBJS = $(SRCS:.c=.o)
+BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 
 # Compiler and flags
 CC = cc
@@ -48,14 +58,17 @@ RM = rm -f
 
 all: $(NAME)
 
-$(NAME): $(OFILES)
-	$(LIB) $(NAME) $(OFILES)
+$(NAME): $(OBJS)
+	ar rc $(NAME) $(OBJS)
+
+bonus: $(OBJS) $(BONUS_OBJS)
+	ar rc $(NAME) $(BONUS_OBJS) $(OBJS)
 
 clean:
-	$(RM) $(OFILES)
+	rm -rf $(OBJS) $(BONUS_OBJS)
 
 fclean: clean
-	$(RM) $(NAME)
+	rm -rf $(NAME)
 
 re: fclean all
 

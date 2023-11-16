@@ -6,7 +6,7 @@
 /*   By: ruirodri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 05:46:56 by ruirodri          #+#    #+#             */
-/*   Updated: 2023/11/16 05:58:59 by ruirodri         ###   ########.fr       */
+/*   Updated: 2023/11/16 15:22:54 by ruirodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,26 +29,20 @@
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*newlist;
-	t_list	*node;
+	t_list	*head;
+	t_list	*tmp;
 
-	if (!lst)
-		return (NULL);
-	newlist = NULL;
-	node = NULL;
+	head = NULL;
 	while (lst)
 	{
-		if (!f)
-			node = ft_lstnew(lst->content);
-		else
-			node = ft_lstnew(f(lst->content));
-		if (!node)
+		tmp = ft_lstnew((*f)(lst -> content));
+		if (!tmp)
 		{
-			ft_lstclear(&newlist, del);
+			ft_lstclear(&head, del);
 			return (NULL);
 		}
-		ft_lstadd_back(&newlist, node);
-		lst = lst->next;
+		ft_lstadd_back(&head, tmp);
+		lst = lst -> next;
 	}
-	return (newlist);
+	return (head);
 }

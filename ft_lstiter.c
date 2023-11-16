@@ -6,7 +6,7 @@
 /*   By: ruirodri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 05:33:19 by ruirodri          #+#    #+#             */
-/*   Updated: 2023/11/16 05:46:16 by ruirodri         ###   ########.fr       */
+/*   Updated: 2023/11/16 15:19:52 by ruirodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,18 @@
 
 #include "libft.h"
 
+void	ft_lstiter(t_list *lst, void (*f)(void *))
+{
+	if (!f || !lst)
+		return ;
+	while (lst)
+	{
+		(*f)(lst->content);
+		lst = lst->next;
+	}
+}
+
+/*
 static char	*ft_strupper(char *s)
 {
 	int	i;
@@ -46,18 +58,6 @@ static char	*ft_strupper(char *s)
 	return (s);
 }
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
-{
-	if (!f || !lst)
-		return ;
-	while (lst)
-	{
-		f(lst->content);
-		lst = lst->next;
-	}
-}
-
-/*
 void ft_strupper_void(void *s)
 {
 	ft_strupper((char *)s);
