@@ -6,7 +6,7 @@
 /*   By: ruirodri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 05:26:34 by ruirodri          #+#    #+#             */
-/*   Updated: 2023/11/16 15:18:55 by ruirodri         ###   ########.fr       */
+/*   Updated: 2023/11/20 08:09:34 by ruirodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,24 +36,23 @@
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	t_list	*head;
 	t_list	*tmp;
 
-	if (lst == NULL || del == NULL)
+	tmp = *lst;
+	if (!lst)
 		return ;
-	head = *lst;
-	while (head)
+	while (tmp != (void *)0)
 	{
-		tmp = head -> next;
-		(*del)(head -> content);
-		free(head);
-		head = tmp;
+		del (tmp->content);
+		*lst = tmp->next;
+		free (tmp);
+		tmp = *lst;
 	}
 	*lst = NULL;
 }
 
 /*
-void	ft_del(void *content)
+static void	ft_del(void *content)
 {
 	free(content);
 }

@@ -24,9 +24,16 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	if (s == NULL)
+	int	i;
+
+	i = 0;
+	if (!s || fd < 0)
 		return ;
-	write (fd, s, ft_strlen(s));
+	while (s[i])
+	{
+		ft_putchar_fd(s[i], fd);
+		i++;
+	}
 }
 
 /*
