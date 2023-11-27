@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ruirodri <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ruiduarte.rrd <ruiduarte.rrd@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 22:37:56 by ruirodri          #+#    #+#             */
-/*   Updated: 2023/11/06 18:54:50 by ruirodri         ###   ########.fr       */
+/*   Updated: 2023/11/27 10:53:22 by ruiduarte.r      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
 	char	*p;
 
-	p = (char *)dst;
 	if (dst == NULL && src == NULL)
 		return (NULL);
+	p = (char *)dst;
 	while (n > 0)
 	{
 		*p = *(char *)src;

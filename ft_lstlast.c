@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ruirodri <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ruiduarte.rrd <ruiduarte.rrd@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 05:06:00 by ruirodri          #+#    #+#             */
-/*   Updated: 2023/11/16 05:15:07 by ruirodri         ###   ########.fr       */
+/*   Updated: 2023/11/27 10:36:49 by ruiduarte.r      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ t_list	*ft_lstlast(t_list *lst)
 {
 	if (lst == NULL)
 		return (NULL);
-	while (lst != NULL && lst->next != (void *)0)
+	while (lst->next != NULL)
 		lst = lst->next;
 	return (lst);
 }

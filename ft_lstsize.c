@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ruirodri <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ruiduarte.rrd <ruiduarte.rrd@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 04:58:27 by ruirodri          #+#    #+#             */
-/*   Updated: 2023/11/16 05:05:35 by ruirodri         ###   ########.fr       */
+/*   Updated: 2023/11/27 10:43:19 by ruiduarte.r      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	ft_lstsize(t_list *lst)
 
 	count = 0;
 	if (lst == NULL)
-		return (0);
+		return (count);
 	while (lst)
 	{
 		lst = lst->next;
@@ -36,8 +36,7 @@ int	ft_lstsize(t_list *lst)
 	return (count);
 }
 
-/*
-int main(void)
+/* int main(void)
 {
     t_list *node1 = malloc(sizeof(t_list));
     t_list *node2 = malloc(sizeof(t_list));
@@ -55,5 +54,4 @@ int main(void)
     free(node2);
     free(node3);
     return (0);
-}
-*/
+} */

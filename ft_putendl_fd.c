@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ruirodri <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ruiduarte.rrd <ruiduarte.rrd@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 01:14:48 by ruirodri          #+#    #+#             */
-/*   Updated: 2023/11/06 18:55:51 by ruirodri         ###   ########.fr       */
+/*   Updated: 2023/11/27 10:59:04 by ruiduarte.r      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ void	ft_putendl_fd(char *s, int fd)
 {
 	int	i;
 
-	i = 0;
 	if (!s || fd < 0)
 		return ;
+	i = 0;
 	while (s[i])
 	{
 		ft_putchar_fd(s[i], fd);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ruirodri <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ruiduarte.rrd <ruiduarte.rrd@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 05:11:27 by ruirodri          #+#    #+#             */
-/*   Updated: 2023/11/16 05:15:17 by ruirodri         ###   ########.fr       */
+/*   Updated: 2023/11/27 10:01:08 by ruiduarte.r      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 		return ;
 	}
 	tmp = *lst;
-	while (tmp->next != (void *)0)
+	while (tmp->next != NULL)
 		tmp = tmp->next;
 	tmp->next = new;
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ruirodri <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ruiduarte.rrd <ruiduarte.rrd@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 05:46:56 by ruirodri          #+#    #+#             */
-/*   Updated: 2023/11/20 08:08:42 by ruirodri         ###   ########.fr       */
+/*   Updated: 2023/11/27 10:37:23 by ruiduarte.r      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,24 +30,18 @@
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*new;
-	t_list	*node;
+	t_list	*temp;
 
-	if (!lst)
-		return (NULL);
 	new = NULL;
-	node = NULL;
 	while (lst)
 	{
-		if (!f)
-			node = ft_lstnew(lst->content);
-		else
-			node = ft_lstnew(f(lst->content));
-		if (!node)
+		temp = ft_lstnew(f(lst->content));
+		if (!temp)
 		{
-			ft_lstclear(&new, del);
-			return (NULL);
+			ft_lstclear(&temp, del);
+			break ;
 		}
-		ft_lstadd_back(&new, node);
+		ft_lstadd_back(&new, temp);
 		lst = lst->next;
 	}
 	return (new);
