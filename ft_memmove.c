@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ruiduarte.rrd <ruiduarte.rrd@student.42    +#+  +:+       +#+        */
+/*   By: ruirodri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 23:20:19 by ruirodri          #+#    #+#             */
-/*   Updated: 2023/11/27 10:52:29 by ruiduarte.r      ###   ########.fr       */
+/*   Updated: 2023/11/27 16:51:50 by ruirodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,29 +26,32 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t n)
 {
-	size_t			i;
-	unsigned char	*d;
-	unsigned char	*s;
+	size_t	len;
 
-	d = (unsigned char *)dst;
-	s = (unsigned char *)src;
-	if (d == NULL && s == NULL)
+	len = 0;
+	if (dst == NULL && src == NULL)
 		return (NULL);
-	if (d > s)
+	if (src < dst)
 	{
-		while (n-- > 0)
-			d[n] = s[n];
+		len = n;
+		while (len > 0)
+		{
+			len--;
+			((char *)dst)[len] = ((char *)src)[len];
+		}
 	}
 	else
 	{
-		i = 0;
-		while (i++ < n)
-			d[i] = s[i];
+		while (len < n)
+		{
+			((char *)dst)[len] = ((char *)src)[len];
+			len++;
+		}
 	}
 	return (dst);
 }
 
-
+/*
 int main(void)
 {
     char 	str[] = "Hello, World!";
@@ -64,4 +67,4 @@ int main(void)
 		printf("✘ - 1: (ft_memmove = '%s' | memmove = '%s')\n", dest, dest2);
 	return (0);
 }
-
+*/

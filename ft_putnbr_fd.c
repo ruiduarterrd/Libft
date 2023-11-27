@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ruiduarte.rrd <ruiduarte.rrd@student.42    +#+  +:+       +#+        */
+/*   By: ruirodri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 01:24:34 by ruirodri          #+#    #+#             */
-/*   Updated: 2023/11/27 10:58:35 by ruiduarte.r      ###   ########.fr       */
+/*   Updated: 2023/11/27 16:39:46 by ruirodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 
 #include "libft.h"
 
-/* void	ft_putnbr_fd(int n, int fd)
+void	ft_putnbr_fd(int n, int fd)
 {
 	if (n < 0)
 	{
@@ -45,7 +45,7 @@
 		else
 			ft_putchar_fd(n + 48, fd);
 	}
-} */
+}
 
 /*
 int main(void)
